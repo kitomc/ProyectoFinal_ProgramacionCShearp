@@ -16,7 +16,7 @@ namespace ProyectoFinal_ProgramacionCShearp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NuevoUsuario());
+            Application.Run(new Splash());
         }
     }
 }
