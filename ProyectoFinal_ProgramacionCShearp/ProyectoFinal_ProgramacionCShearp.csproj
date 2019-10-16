@@ -55,8 +55,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrlCursos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlCursos.Designer.cs">
+      <DependentUpon>ctrlCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlInscripcion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlInscripcion.Designer.cs">
+      <DependentUpon>ctrlInscripcion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cursos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlEstudiante.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlEstudiante.Designer.cs">
+      <DependentUpon>ctrlEstudiante.cs</DependentUpon>
     </Compile>
     <Compile Include="EstudianteCursos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -109,6 +127,18 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Utilidad.cs" />
+    <EmbeddedResource Include="ctrlCursos.resx">
+      <DependentUpon>ctrlCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlEstudiante.resx">
+      <DependentUpon>ctrlEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlInscripcion.resx">
+      <DependentUpon>ctrlInscripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +214,18 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\64994.gif" />
+    <None Include="Resources\icons8_close_window_96px_1.png" />
+    <None Include="Resources\icons8_close_window_64px.png" />
+    <None Include="Resources\icons8_student_male_500px.png" />
+    <None Include="Resources\icons8_classroom_500px.png" />
+    <None Include="Resources\icons8_open_envelope_math_500px.png" />
+    <None Include="Resources\icons8_report_card_500px.png" />
+    <None Include="Resources\icons8_classroom_80px.png" />
+    <None Include="Resources\icons8_student_male_128px.png" />
+    <None Include="Resources\logo movil.png" />
+    <None Include="Resources\icons8_under_computer_100px.png" />
+    <None Include="Resources\tree.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

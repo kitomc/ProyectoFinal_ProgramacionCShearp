@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -59,7 +60,7 @@ namespace ProyectoFinal_ProgramacionCShearp
             Usuario.Text.Replace(" ", "");
             Contra.Text.Trim();
             Contra.Text.Replace(" ", "");
-          
+
 
 
             try
@@ -74,7 +75,7 @@ namespace ProyectoFinal_ProgramacionCShearp
                 db.SaveChanges();
                 return true;
 
-            
+
 
             }
             catch
@@ -86,15 +87,182 @@ namespace ProyectoFinal_ProgramacionCShearp
 
         }
 
-    
+
+
+
+        //Validacion de cedula 
+
+        public static bool ValidadorDeCedula(string Cedula, out string mensaje)
+        {
+
+            mensaje = string.Empty;
+            if (string.IsNullOrEmpty(Cedula.Trim()))
+            {
+                mensaje = "Debe de escribir La Cedula";
+                return false;
+            }
+
+            if (!EsNumero(Cedula))
+            {
+                mensaje = "La Cedula solo debe de contener numeros";
+                return false;
+            }
+
+            if (Cedula.Length != 11)
+            {
+                mensaje = "La Cedula debe tener 11 digitos";
+                return false;
+            }
+            int[] Por = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+            char[] Valores = Cedula.ToCharArray();
+            int[] sequence = Valores.Select(c => Convert.ToInt32(c.ToString())).ToArray();
+            char[] Resultado;
+            Cedula = string.Empty;
+            for (int i = 0; i < 10; i++)
+            {
+                Cedula += ((Por[i] * sequence[i]).ToString()); ;
+            }
+            Resultado = Cedula.ToCharArray();
+            int suma = 0;
+            for (int i = 0; i < Resultado.Length; i++)
+            {
+                suma += int.Parse(Resultado[i].ToString());
+            }
+
+            int unidad = int.Parse(suma.ToString().Remove(0, 1));
+            int restante = unidad == 0 ? 0 : 10 - unidad;
+            if (((suma + restante) - suma) == sequence[10])
+            //if ((suma + int.Parse(Valores[10].ToString())) % 2 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                mensaje = "La Cedula es Invalida";
+                return false;
+            }
+        }
+
+
+        //Quitar espacio
+
+        public static String Quitar_Espacios(ref string s)
+        {
+            if (s.Contains("  "))
+            {
+                s = s.Replace("  ", " ");
+                Quitar_Espacios(ref s);
+            }
+            return s;
+        }
+
+
+        public static bool EsNumero(string s)
+        {
+            long valor;
+            if (long.TryParse(s, out valor))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
+
+
+
+        //Validacion de mail--- OJO Libreria (using System.Net.Mail) contiene validador
+
+        static public bool ValidadorDeCorreo(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Correo invalido");
+                return false;
+            }
+        }
 
 
 
 
 
+        //Limpieza de textbox
 
+        static public void Limpiar(TextBox a, TextBox b, TextBox c, TextBox d, TextBox e, TextBox f)
+        {
+            a.Text = b.Text = c.Text = d.Text = e.Text = f.Text = string.Empty;
+        }
+        static public void Limpiar(TextBox a, TextBox b, TextBox c, TextBox d, TextBox e)
+        {
+            a.Text = b.Text = c.Text = d.Text = e.Text = string.Empty;
+        }
+        static public void Limpiar(TextBox a, TextBox b, TextBox c, TextBox d)
+        {
+            a.Text = b.Text = c.Text = d.Text = string.Empty;
+        }
+        static public void Limpiar(TextBox a, TextBox b)
+        {
+            a.Text = b.Text = string.Empty;
+        }
+
+
+        //Llamado de panel 
+
+        public static bool MostrarPanel(Panel contenedor, Control contenido)
+        {
+
+
+            try
+            {
+                contenedor.Controls.Add(contenido);
+                contenido.BringToFront();
+                contenido.Visible = true;
+                return true;
+
+            }
+            catch
+            {
+
+                return false;
+            }
+
+
+
+
+        }
+
+
+        //Refrescar Data Grid View Estudiante
+
+        public static void RefrescarTablaEstudiante( DataGridView dataGridView)
+        {
+
+            
+            
+                using (NOTIFICACIONEntities Basededatos = new NOTIFICACIONEntities())
+                {
+                
+
+                dataGridView.DataSource = Basededatos.Estudiantes.ToList<Estudiantes>();
+
+                }
+            
+        }
 
 
 
     }
 }
+
+
+    

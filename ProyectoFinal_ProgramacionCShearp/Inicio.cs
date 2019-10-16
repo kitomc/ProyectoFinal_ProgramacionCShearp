@@ -16,5 +16,121 @@ namespace ProyectoFinal_ProgramacionCShearp
         {
             InitializeComponent();
         }
+        public Inicio( string NombreUsuario)
+        {
+            InitializeComponent();
+            
+            lbNombreUsuario.Text = NombreUsuario;
+        }
+      
+        DateTime Date = DateTime.Today;
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+            lbFechaHoy.Text = Date.ToString("dd/MM/yyyy");
+        }
+        //Variables Globales
+       
+
+
+        //------------ANIMACIONES---------------------------
+        private void PnlEstudiante_MouseHover(object sender, EventArgs e)
+        {
+            pnlEstudiante.BackColor = Color.Blue;
+        }
+
+        private void PnlEstudiante_MouseLeave(object sender, EventArgs e)
+        {
+            pnlEstudiante.BackColor = pnlMenu.BackColor;
+        }
+
+
+        //-----------BTN Cerrar-------------------------------//
+        private void PictureBox8_Click(object sender, EventArgs e)
+        {
+           Close();
+        }
+        //------------ANIMACIONES---------------------------
+        private void PnlCurso_MouseHover(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void PictureBox5_MouseLeave(object sender, EventArgs e)
+        {
+
+            pnlCurso.BackColor = pnlMenu.BackColor;
+        }
+
+        private void PnlCurso_MouseHover_1(object sender, EventArgs e)
+        {
+            pnlCurso.BackColor = Color.Blue;
+        }
+
+        private void PnlInscripcion_MouseHover(object sender, EventArgs e)
+        {
+            pnlInscripcion.BackColor = Color.Blue;
+        }
+
+        private void PnlInscripcion_MouseLeave(object sender, EventArgs e)
+        {
+            pnlInscripcion.BackColor = pnlMenu.BackColor;
+
+        }
+
+        private void PictureBox7_MouseHover(object sender, EventArgs e)
+        {
+            pnlCalificar.BackColor = Color.Blue;
+        }
+
+        private void PnlCalificar_MouseLeave(object sender, EventArgs e)
+        {
+            pnlCalificar.BackColor = pnlMenu.BackColor;
+        }
+
+
+
+
+
+
+
+        //------------BTN REgistrar------------>
+        private void BtnRegistrar_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void TbTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+
+
+
+            
+            
+        }
+
+        private void PnlEstudiante_Click(object sender, EventArgs e)
+        {
+            ctrlEstudiante ctrlEstudiante = new ctrlEstudiante();
+
+            Utilidad.MostrarPanel(pnlContenedor, ctrlEstudiante);
+
+           
+           
+
+        }
+
+        private void PnlCurso_Click(object sender, EventArgs e)
+        {
+
+            ctrlCursos ctrlCursos = new ctrlCursos();
+            Utilidad.MostrarPanel(pnlContenedor,ctrlCursos);
+        }
+
+        private void PnlInscripcion_Click(object sender, EventArgs e)
+        {
+            ctrlInscripcion ctrlInscripcion = new ctrlInscripcion();
+            Utilidad.MostrarPanel(pnlContenedor, ctrlInscripcion);
+        }
+    
     }
 }
