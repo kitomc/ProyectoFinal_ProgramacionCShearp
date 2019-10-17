@@ -40,7 +40,8 @@ namespace ProyectoFinal_ProgramacionCShearp
 
         private void PnlEstudiante_MouseLeave(object sender, EventArgs e)
         {
-            pnlEstudiante.BackColor = pnlMenu.BackColor;
+            // pnlEstudiante.BackColor = pnlMenu.BackColor;
+            Utilidad.PnlActivo(pnlEstudiante, pnlCurso, pnlInscripcion, pnlCalificar);
         }
 
 
@@ -57,8 +58,8 @@ namespace ProyectoFinal_ProgramacionCShearp
 
         private void PictureBox5_MouseLeave(object sender, EventArgs e)
         {
-
-            pnlCurso.BackColor = pnlMenu.BackColor;
+            Utilidad.PnlActivo( pnlCurso, pnlEstudiante, pnlInscripcion, pnlCalificar);
+            // pnlCurso.BackColor = pnlMenu.BackColor;
         }
 
         private void PnlCurso_MouseHover_1(object sender, EventArgs e)
@@ -73,7 +74,8 @@ namespace ProyectoFinal_ProgramacionCShearp
 
         private void PnlInscripcion_MouseLeave(object sender, EventArgs e)
         {
-            pnlInscripcion.BackColor = pnlMenu.BackColor;
+            Utilidad.PnlActivo( pnlInscripcion, pnlEstudiante, pnlCurso, pnlCalificar);
+            //pnlInscripcion.BackColor = pnlMenu.BackColor;
 
         }
 
@@ -84,7 +86,8 @@ namespace ProyectoFinal_ProgramacionCShearp
 
         private void PnlCalificar_MouseLeave(object sender, EventArgs e)
         {
-            pnlCalificar.BackColor = pnlMenu.BackColor;
+            Utilidad.PnlActivo( pnlCalificar, pnlEstudiante, pnlCurso, pnlInscripcion);
+            //pnlCalificar.BackColor = pnlMenu.BackColor;
         }
 
 
@@ -110,6 +113,8 @@ namespace ProyectoFinal_ProgramacionCShearp
 
         private void PnlEstudiante_Click(object sender, EventArgs e)
         {
+           
+            
             ctrlEstudiante ctrlEstudiante = new ctrlEstudiante();
 
             Utilidad.MostrarPanel(pnlContenedor, ctrlEstudiante);
@@ -131,6 +136,11 @@ namespace ProyectoFinal_ProgramacionCShearp
             ctrlInscripcion ctrlInscripcion = new ctrlInscripcion();
             Utilidad.MostrarPanel(pnlContenedor, ctrlInscripcion);
         }
+
+
+
+
+       
     
     }
 }

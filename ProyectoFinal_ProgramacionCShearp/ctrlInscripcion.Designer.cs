@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pnlRegistroEstudiante = new System.Windows.Forms.Panel();
+            this.cbCursos = new System.Windows.Forms.ComboBox();
+            this.cbEstudiante = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
@@ -40,10 +42,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreEstudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbEstudiante = new System.Windows.Forms.ComboBox();
-            this.cbCursos = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlRegistroEstudiante.SuspendLayout();
@@ -78,16 +78,16 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.NombreEstudiante,
+            this.Estudiante,
             this.Curso});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(192)))), ((int)(((byte)(193)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(192)))), ((int)(((byte)(193)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(60, 40);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(266, 260);
@@ -109,6 +109,22 @@
             this.pnlRegistroEstudiante.Name = "pnlRegistroEstudiante";
             this.pnlRegistroEstudiante.Size = new System.Drawing.Size(288, 343);
             this.pnlRegistroEstudiante.TabIndex = 45;
+            // 
+            // cbCursos
+            // 
+            this.cbCursos.FormattingEnabled = true;
+            this.cbCursos.Location = new System.Drawing.Point(116, 104);
+            this.cbCursos.Name = "cbCursos";
+            this.cbCursos.Size = new System.Drawing.Size(121, 21);
+            this.cbCursos.TabIndex = 47;
+            // 
+            // cbEstudiante
+            // 
+            this.cbEstudiante.FormattingEnabled = true;
+            this.cbEstudiante.Location = new System.Drawing.Point(116, 40);
+            this.cbEstudiante.Name = "cbEstudiante";
+            this.cbEstudiante.Size = new System.Drawing.Size(151, 21);
+            this.cbEstudiante.TabIndex = 46;
             // 
             // label1
             // 
@@ -150,6 +166,7 @@
             this.btnRegistrar.TabIndex = 42;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.BtnRegistrar_Click);
             // 
             // btnActualizar
             // 
@@ -189,35 +206,22 @@
             // 
             // ID
             // 
+            this.ID.DataPropertyName = "Id";
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.Width = 20;
             // 
-            // NombreEstudiante
+            // Estudiante
             // 
-            this.NombreEstudiante.HeaderText = "NombreEstudiante";
-            this.NombreEstudiante.Name = "NombreEstudiante";
+            this.Estudiante.DataPropertyName = "IdEstudiante";
+            this.Estudiante.HeaderText = "NombreEstudiante";
+            this.Estudiante.Name = "Estudiante";
             // 
             // Curso
             // 
+            this.Curso.DataPropertyName = "IdCurso";
             this.Curso.HeaderText = "Curso";
             this.Curso.Name = "Curso";
-            // 
-            // cbEstudiante
-            // 
-            this.cbEstudiante.FormattingEnabled = true;
-            this.cbEstudiante.Location = new System.Drawing.Point(116, 40);
-            this.cbEstudiante.Name = "cbEstudiante";
-            this.cbEstudiante.Size = new System.Drawing.Size(151, 21);
-            this.cbEstudiante.TabIndex = 46;
-            // 
-            // cbCursos
-            // 
-            this.cbCursos.FormattingEnabled = true;
-            this.cbCursos.Location = new System.Drawing.Point(116, 104);
-            this.cbCursos.Name = "cbCursos";
-            this.cbCursos.Size = new System.Drawing.Size(121, 21);
-            this.cbCursos.TabIndex = 47;
             // 
             // ctrlInscripcion
             // 
@@ -228,6 +232,7 @@
             this.Controls.Add(this.pnlRegistroEstudiante);
             this.Name = "ctrlInscripcion";
             this.Size = new System.Drawing.Size(707, 401);
+            this.Load += new System.EventHandler(this.CtrlInscripcion_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -249,10 +254,10 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreEstudiante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Curso;
         private System.Windows.Forms.ComboBox cbCursos;
         private System.Windows.Forms.ComboBox cbEstudiante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estudiante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curso;
     }
 }

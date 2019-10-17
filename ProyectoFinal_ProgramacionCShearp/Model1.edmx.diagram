@@ -7,7 +7,7 @@
       <Diagram DiagramId="c6606b84d54a4b0183084b4f02179c97" Name="Diagram1">
         <EntityTypeShape EntityType="NOTIFICACIONModel.Cursos" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NOTIFICACIONModel.EstudianteCursos" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NOTIFICACIONModel.Estudiantes" Width="1.5" PointX="4.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTIFICACIONModel.Estudiantes" Width="1.5" PointX="5.75" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="NOTIFICACIONModel.Usuarios" Width="1.5" PointX="8" PointY="1.5" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>

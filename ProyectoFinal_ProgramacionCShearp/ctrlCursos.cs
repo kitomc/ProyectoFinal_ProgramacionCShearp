@@ -42,6 +42,8 @@ namespace ProyectoFinal_ProgramacionCShearp
                     db.SaveChanges();
 
                     MessageBox.Show("Curso agregado satisfactoriamente");
+                    refrescarTabla();
+                    tbNombre.Text = string.Empty;
 
                 }
             }
@@ -53,5 +55,29 @@ namespace ProyectoFinal_ProgramacionCShearp
 
 
         }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CtrlCursos_Load(object sender, EventArgs e)
+        {
+
+            refrescarTabla();
+            rbActivo.Checked = true;
+           
+        }
+            public void refrescarTabla ()
+            {
+                using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
+                {
+
+
+                    dataGridView1.DataSource = db.Cursos.ToList<Cursos>();
+
+                }
+
+            }
     }
 }

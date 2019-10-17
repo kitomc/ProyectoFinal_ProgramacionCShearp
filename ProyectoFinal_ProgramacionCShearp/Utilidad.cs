@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -259,6 +260,14 @@ namespace ProyectoFinal_ProgramacionCShearp
             
         }
 
+        //Panel Activo
+       public static void PnlActivo(Panel activo, Panel noactivo1, Panel noactivo2, Panel noactivo3)
+        {
+            activo.BackColor = Color.CornflowerBlue;
+            noactivo1.BackColor = Color.FromArgb(246, 248, 247);
+            noactivo2.BackColor = Color.FromArgb(246, 248, 247);
+            noactivo3.BackColor = Color.FromArgb(246, 248, 247);
+        }
 
 
     }
