@@ -67,14 +67,14 @@
     <Compile Include="ctrlInscripcion.Designer.cs">
       <DependentUpon>ctrlInscripcion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cursos.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="ctrlEstudiante.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ctrlEstudiante.Designer.cs">
       <DependentUpon>ctrlEstudiante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EstudianteCursos.cs">
       <DependentUpon>Model1.tt</DependentUpon>

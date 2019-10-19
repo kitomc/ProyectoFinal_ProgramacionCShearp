@@ -227,6 +227,7 @@ namespace ProyectoFinal_ProgramacionCShearp
             {
                 contenedor.Controls.Add(contenido);
                 contenido.BringToFront();
+                contenido.Show();
                 contenido.Visible = true;
                 return true;
 

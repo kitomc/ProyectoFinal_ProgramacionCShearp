@@ -16,9 +16,19 @@ namespace ProyectoFinal_ProgramacionCShearp
         {
             InitializeComponent();
         }
+       
+        //public ctrlInscripcion(EstudianteCursos estuCurso)
+        //{
+        //    InitializeComponent();
+        //    estudianteCursos = estuCurso;
+
+        //}
+
+        EstudianteCursos estudianteCursos = new EstudianteCursos();
 
         private void CtrlInscripcion_Load(object sender, EventArgs e)
         {
+            
             //Llenando Combobox
             using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
             {
@@ -63,27 +73,26 @@ namespace ProyectoFinal_ProgramacionCShearp
             using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
             {
 
-                EstudianteCursos relacion = new EstudianteCursos();
-                RelacionCursoEstudiante relacionCursoEstudiante = new RelacionCursoEstudiante();
 
 
 
-                var queryCursos = from a in db.EstudianteCursos
-                            from b in db.Cursos
-                            where a.IdCurso == b.Id 
-                            select b.Nombre.ToList();
-                relacionCursoEstudiante.ListaCursos =   queryCursos;
 
-                var queryEstudiates = from a in db.EstudianteCursos
-                            from b in db.Estudiantes
-                            where a.IdCurso == b.Id
-                            select b.Nombre.ToList();
-                relacionCursoEstudiante.ListaEstudiantes = queryEstudiates;
+                var query = from a in db.EstudianteCursos
+                                //from c in db.Cursos
+                                //from s in db.Estudiantes
+                                //where a.IdCurso == c.Id && a.IdEstudiante == s.Id
+                            join c in db.Cursos on a.IdCurso equals c.Id
+                            join s in db.Estudiantes on a.IdEstudiante equals s.Id
+                            select c.Nombre + s.Nombre;
 
 
-                dataGridView1.DataSource = relacionCursoEstudiante.ListaCursos;
+                dataGridView1.DataSource = query.ToList();
 
-               
+                
+
+                            
+
+
 
 
 
@@ -96,10 +105,10 @@ namespace ProyectoFinal_ProgramacionCShearp
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
-
+           
             try
             {
-            EstudianteCursos estudianteCursos = new EstudianteCursos();
+            
             //Agregando a base de datos
             using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
             {
@@ -121,6 +130,8 @@ namespace ProyectoFinal_ProgramacionCShearp
                 MessageBox.Show("Estudiante inscrito  satisfactoriamente");
                 refrecartabla();
 
+                    
+                  
 
             }
 

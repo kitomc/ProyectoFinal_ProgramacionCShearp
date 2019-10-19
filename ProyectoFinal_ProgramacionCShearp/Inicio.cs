@@ -22,7 +22,10 @@ namespace ProyectoFinal_ProgramacionCShearp
             
             lbNombreUsuario.Text = NombreUsuario;
         }
-      
+
+        ctrlCursos ctrlCursos;
+        ctrlInscripcion ctrlInscripcion;
+
         DateTime Date = DateTime.Today;
         private void Inicio_Load(object sender, EventArgs e)
         {
@@ -87,7 +90,7 @@ namespace ProyectoFinal_ProgramacionCShearp
         private void PnlCalificar_MouseLeave(object sender, EventArgs e)
         {
             Utilidad.PnlActivo( pnlCalificar, pnlEstudiante, pnlCurso, pnlInscripcion);
-            //pnlCalificar.BackColor = pnlMenu.BackColor;
+            
         }
 
 
@@ -127,14 +130,16 @@ namespace ProyectoFinal_ProgramacionCShearp
         private void PnlCurso_Click(object sender, EventArgs e)
         {
 
-            ctrlCursos ctrlCursos = new ctrlCursos();
+            ctrlCursos = new ctrlCursos();
             Utilidad.MostrarPanel(pnlContenedor,ctrlCursos);
         }
 
         private void PnlInscripcion_Click(object sender, EventArgs e)
         {
-            ctrlInscripcion ctrlInscripcion = new ctrlInscripcion();
+
+            ctrlInscripcion = new ctrlInscripcion();
             Utilidad.MostrarPanel(pnlContenedor, ctrlInscripcion);
+
         }
 
 

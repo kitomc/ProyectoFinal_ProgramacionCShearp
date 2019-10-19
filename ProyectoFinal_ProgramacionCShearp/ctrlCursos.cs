@@ -16,13 +16,26 @@ namespace ProyectoFinal_ProgramacionCShearp
         {
             InitializeComponent();
         }
+        public ctrlCursos(ctrlInscripcion ctrlInscripcion)
+        {
+            InitializeComponent();
+        }
+
+        //public ctrlCursos( EstudianteCursos estucurso )
+        //{
+        //    InitializeComponent();
+        //    dbcursos.EstudianteCursos.Add( estucurso);
+        //}
+
+
+            Cursos dbcursos = new Cursos();
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
 
-            Cursos dbcursos = new Cursos();
-
-            dbcursos.Nombre = tbNombre.Text.ToString();
+           
+            dbcursos.Nombre = tbNombre.Text.ToString().ToUpper();
+            
 
             if (rbActivo.Checked== true)
             {
@@ -74,7 +87,7 @@ namespace ProyectoFinal_ProgramacionCShearp
                 {
 
 
-                    dataGridView1.DataSource = db.Cursos.ToList<Cursos>();
+                dataGridView1.DataSource = db.Cursos.ToList();
 
                 }
 
