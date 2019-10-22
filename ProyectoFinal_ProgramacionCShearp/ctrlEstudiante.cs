@@ -38,7 +38,8 @@ namespace ProyectoFinal_ProgramacionCShearp
                     //-Validando Cedula-->
                     string cedula, mensaje;
                     cedula = tbCedula.Text.ToString();
-                    if (Utilidad.ValidadorDeCedula(cedula, out mensaje) == true)
+                    DBestudiantes.Fecha_N = Date;
+                if (Utilidad.ValidadorDeCedula(cedula, out mensaje) == true)
                     {
                         DBestudiantes.Cedula = cedula;
 
@@ -64,56 +65,81 @@ namespace ProyectoFinal_ProgramacionCShearp
                             //Correo
                             string correo;
                             correo = tbEmail.Text.ToString();
+                        //Validando estado
+                        if (rbActivo.Checked == true)
+                        {
+                            DBestudiantes.Estado = "A";
+                        }
+                        else
+                        {
+                            DBestudiantes.Estado = "I";
+                        }
 
-                            if (Utilidad.ValidadorDeCorreo(correo) == true)
+                        if (Utilidad.ValidadorDeCorreo(correo) == true)
                             {
                                 DBestudiantes.Email = correo;
 
                                 try
                                 {
-                                var db = new NOTIFICACIONEntities();
-                                var query = from a in db.Estudiantes
-                                            where a.Cedula==tbCedula.Text
-                                            select a;
+                                                using (NOTIFICACIONEntities db = new NOTIFICACIONEntities ())
+                                                {
+                                                                        var query = from a in db.Estudiantes
+                                                                                    where a.Cedula == tbCedula.Text
+                                                                                    select a.Id;
+                                                                    if (!(query.Any()))
+                                                                    {
+                                                                        using (NOTIFICACIONEntities db2 = new NOTIFICACIONEntities())
+                                                                        {
+                                                                            try
+                                                                            {
+                                                                                db2.Estudiantes.Add(DBestudiantes);
+                                                                                db2.SaveChanges();
+                                                                                MessageBox.Show("Estudiante Registrado exitosamente");
+                                                                                Refrescar();
 
-                                    MessageBox.Show("Esta cedula ya esta siendo usada por otra persona!");
+                                                                            }
+                                                                            catch 
+                                                                            {
+
+                                                                               MessageBox.Show("Error al agregar datos a la base de datos" );
+                                                                            }
+
+
+                                                                        }
+                                                                            Refrescar();
+                                                                    }
+
+
+                                                                        else
+                                                                        {
+
+                                                                        MessageBox.Show("Esta cedula ya esta siendo usada por otra persona!");
+
+
+                                                                        }
+
+                                                }
+                               
+
+                               
                                 }
                                 catch 
                                 {
 
-                                            using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
-                                            {
-                                                try
-                                                {
-                                                    db.Estudiantes.Add(DBestudiantes);
-                                                    db.SaveChanges();
-                                                    MessageBox.Show("Estudiante Registrado exitosamente");
-                                                    Refrescar();
-
-                                                }
-                                                catch 
-                                                {
-
-                                                   MessageBox.Show("Error al agregar datos a la base de datos" );
-                                                }
-
-
-                                }
+                                MessageBox.Show("Error al introducir datos a la base de datos");
         
                            
 
                                 }
+
+
+
+
+
+
                             }
 
-                            //Validando estado
-                            if (rbActivo.Checked == true)
-                            {
-                                DBestudiantes.Estado = "A";
-                            }
-                            else
-                            {
-                                DBestudiantes.Estado = "I";
-                            }
+                           
 
 
 
@@ -129,7 +155,7 @@ namespace ProyectoFinal_ProgramacionCShearp
 
 
 
-                        DBestudiantes.Fecha_N = Date;
+                        
 
 
 
@@ -223,19 +249,20 @@ namespace ProyectoFinal_ProgramacionCShearp
         //Update
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            if (dataGridView1.CurrentRow.Index !=1)
+
+            if (dataGridView1.CurrentRow.Index != 1)
             {
                 DBestudiantes.Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
 
-                using (NOTIFICACIONEntities db= new NOTIFICACIONEntities())
+                using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
                 {
                     DBestudiantes = db.Estudiantes.Where(x => x.Id == DBestudiantes.Id).FirstOrDefault();
+
                     tbNombre.Text = DBestudiantes.Nombre.ToString();
                     tbApellido.Text = DBestudiantes.Apellido;
                     if (DBestudiantes.Cedula == tbCedula.Text)
                     {
-                    tbCedula.Text = string.Empty;
+                        tbCedula.Text = string.Empty;
 
                     }
                     else
@@ -247,7 +274,7 @@ namespace ProyectoFinal_ProgramacionCShearp
                     {
                         DBestudiantes.Genero = "F";
                     }
-                    else 
+                    else
                     {
                         DBestudiantes.Genero = "M";
                     }
@@ -262,22 +289,74 @@ namespace ProyectoFinal_ProgramacionCShearp
                     {
                         DBestudiantes.Estado = "I";
                     }
-                    
+
 
                 }
                 btnRegistrar.Text = "Actualizar";
-                btnBorrar.Enabled = true;
+
             }
 
 
-           
-            
+
+
 
         }
 
         private void BtnActualizar_Click(object sender, EventArgs e)
         {
                       
+
+        }
+
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentRow.Index != 0)
+            {
+                DBestudiantes.Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+
+                using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
+                {
+                    DBestudiantes = db.Estudiantes.Where(x => x.Id == DBestudiantes.Id).FirstOrDefault();
+                    tbNombre.Text = DBestudiantes.Nombre.ToString();
+                    tbApellido.Text = DBestudiantes.Apellido;
+                    if (DBestudiantes.Cedula == tbCedula.Text)
+                    {
+                        tbCedula.Text = string.Empty;
+
+                    }
+                    else
+                    {
+                        tbCedula.Text = DBestudiantes.Cedula;
+                    }
+                    tbTelefono.Text = DBestudiantes.Telefono;
+                    if (rbMujer.Checked == true)
+                    {
+                        DBestudiantes.Genero = "F";
+                    }
+                    else
+                    {
+                        DBestudiantes.Genero = "M";
+                    }
+
+                    tbEmail.Text = DBestudiantes.Email;
+
+                    if (rbActivo.Checked == true)
+                    {
+                        DBestudiantes.Estado = "A";
+                    }
+                    else if (rbActivo.Checked == true)
+                    {
+                        DBestudiantes.Estado = "I";
+                    }
+
+
+                }
+                btnRegistrar.Text = "Actualizar";
+
+            }
+
+
+
 
         }
     }
