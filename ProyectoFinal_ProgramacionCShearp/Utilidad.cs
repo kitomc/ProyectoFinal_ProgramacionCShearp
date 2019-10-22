@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
@@ -271,7 +272,53 @@ namespace ProyectoFinal_ProgramacionCShearp
         }
 
 
-    }
+        public static bool ValidadorCamposVacios(TextBox a, TextBox b, TextBox c, TextBox d, TextBox e, TextBox f)
+        {
+
+        if (string.IsNullOrEmpty(a.Text ) && string.IsNullOrEmpty(b.Text) && string.IsNullOrEmpty(c.Text) && string.IsNullOrEmpty(d.Text) && string.IsNullOrEmpty(e.Text) && string.IsNullOrEmpty(f.Text))
+            {
+                MessageBox.Show("Los campos no pueden estar vacios");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
+
+        //Enviar el mail
+
+            public static void EnviarNotaMail(string MailEstudiante,string  curso , string expresion , int nota )
+        {
+            try
+            {
+            MailMessage mail = new MailMessage();
+
+            MailMessage email = new MailMessage();
+            email.To.Add(new MailAddress(MailEstudiante));
+            email.From = new MailAddress("kitomc.rd@gmail.com");
+            email.Subject = "NOTA DEL CURSO "+ curso  ;
+            email.Body = " <b> " + expresion + " su nota  fue  " + nota  +" de 100</b> ";
+            email.IsBodyHtml =true;
+            email.Priority = MailPriority.Normal;
+
+            MessageBox.Show("Mensaje enviado exitosamente!! Gracias por preferirnos");
+
+            }
+            catch 
+            {
+
+                MessageBox.Show("Error al enviar mensaje");
+            }
+
+
+        }
+
+        
+}
 }
 
 

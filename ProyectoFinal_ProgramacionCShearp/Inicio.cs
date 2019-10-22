@@ -142,10 +142,11 @@ namespace ProyectoFinal_ProgramacionCShearp
 
         }
 
+        private void PnlCalificar_Click(object sender, EventArgs e)
+        {
 
-
-
-       
-    
+            ctrlCalificar ctrlCalificar = new ctrlCalificar();
+            Utilidad.MostrarPanel(pnlContenedor, ctrlCalificar);
+        }
     }
 }

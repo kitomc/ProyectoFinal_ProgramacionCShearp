@@ -30,145 +30,153 @@ namespace ProyectoFinal_ProgramacionCShearp
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
 
-            DBestudiantes.Nombre = tbNombre.Text.ToString();
-            DBestudiantes.Apellido = tbApellido.Text.ToString();
-
-            //-Validando Cedula-->
-            string cedula, mensaje;
-            cedula = tbCedula.Text.ToString();
-            if (Utilidad.ValidadorDeCedula(cedula, out mensaje) == true)
+            if (Utilidad.ValidadorCamposVacios(tbNombre, tbApellido, tbCedula, tbEmail, tbTelefono, tbNombre)==false)
             {
-                DBestudiantes.Cedula = cedula;
+                    DBestudiantes.Nombre = tbNombre.Text.ToString();
+                    DBestudiantes.Apellido = tbApellido.Text.ToString();
 
-
-
-                //--Validacion de numero telefonico--->
-                if (tbTelefono.Text.Length <= 10)
-                {
-                    DBestudiantes.Telefono = tbTelefono.Text.ToString();
-
-
-
-                    //Genero
-                    if (rbHmbre.Checked == true)
+                    //-Validando Cedula-->
+                    string cedula, mensaje;
+                    cedula = tbCedula.Text.ToString();
+                    if (Utilidad.ValidadorDeCedula(cedula, out mensaje) == true)
                     {
-                        DBestudiantes.Genero = "M";
-                    }
-                    if (rbMujer.Checked == true)
-                    {
-                        DBestudiantes.Genero = "F";
-                    }
+                        DBestudiantes.Cedula = cedula;
 
-                    //Correo
-                    string correo;
-                    correo = tbEmail.Text.ToString();
 
-                    if (Utilidad.ValidadorDeCorreo(correo) == true)
-                    {
-                        DBestudiantes.Email = correo;
 
-                        try
+                        //--Validacion de numero telefonico--->
+                        if (tbTelefono.Text.Length <= 10)
                         {
-                        var db = new NOTIFICACIONEntities();
-                        var query = from a in db.Estudiantes
-                                    where a.Cedula==tbCedula.Text
-                                    select a;
-
-                            MessageBox.Show("Esta cedula ya esta siendo usada por otra persona!");
-                        }
-                        catch 
-                        {
-
-                                    using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
-                                    {
-                                        try
-                                        {
-                                            db.Estudiantes.Add(DBestudiantes);
-                                            db.SaveChanges();
-                                            MessageBox.Show("Estudiante Registrado exitosamente");
-                                            Refrescar();
-
-                                        }
-                                        catch 
-                                        {
-
-                                           MessageBox.Show("Error al agregar datos a la base de datos" );
-                                        }
+                            DBestudiantes.Telefono = tbTelefono.Text.ToString();
 
 
-                        }
+
+                            //Genero
+                            if (rbHmbre.Checked == true)
+                            {
+                                DBestudiantes.Genero = "M";
+                            }
+                            if (rbMujer.Checked == true)
+                            {
+                                DBestudiantes.Genero = "F";
+                            }
+
+                            //Correo
+                            string correo;
+                            correo = tbEmail.Text.ToString();
+
+                            if (Utilidad.ValidadorDeCorreo(correo) == true)
+                            {
+                                DBestudiantes.Email = correo;
+
+                                try
+                                {
+                                var db = new NOTIFICACIONEntities();
+                                var query = from a in db.Estudiantes
+                                            where a.Cedula==tbCedula.Text
+                                            select a;
+
+                                    MessageBox.Show("Esta cedula ya esta siendo usada por otra persona!");
+                                }
+                                catch 
+                                {
+
+                                            using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
+                                            {
+                                                try
+                                                {
+                                                    db.Estudiantes.Add(DBestudiantes);
+                                                    db.SaveChanges();
+                                                    MessageBox.Show("Estudiante Registrado exitosamente");
+                                                    Refrescar();
+
+                                                }
+                                                catch 
+                                                {
+
+                                                   MessageBox.Show("Error al agregar datos a la base de datos" );
+                                                }
+
+
+                                }
         
                            
 
-                        }
-                    }
+                                }
+                            }
 
-                    //Validando estado
-                    if (rbActivo.Checked == true)
-                    {
-                        DBestudiantes.Estado = "A";
+                            //Validando estado
+                            if (rbActivo.Checked == true)
+                            {
+                                DBestudiantes.Estado = "A";
+                            }
+                            else
+                            {
+                                DBestudiantes.Estado = "I";
+                            }
+
+
+
+
+
+                        }
+                        else 
+                        {
+                            MessageBox.Show("Error!! Escriba el telefono sin guiones");
+
+
+                        }
+
+
+
+                        DBestudiantes.Fecha_N = Date;
+
+
+
+
                     }
                     else
                     {
-                        DBestudiantes.Estado = "I";
+                        MessageBox.Show(mensaje);
+
                     }
 
 
-
-
-
-                }
-                else 
-                {
-                    MessageBox.Show("Error!! Escriba el telefono sin guiones");
-
-
-                }
-
-
-
-                DBestudiantes.Fecha_N = Date;
-
-
-
-
-            }
-            else
-            {
-                MessageBox.Show(mensaje);
-
-            }
-
-
-            try
-            {
-                using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
-                {
-
-                    if (DBestudiantes.Id== 0) // Insertar
+                    try
                     {
-                        db.Estudiantes.Add(DBestudiantes);
-                        Refrescar();
+                        using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
+                        {
+
+                            if (DBestudiantes.Id== 0) // Insertar
+                            {
+                                db.Estudiantes.Add(DBestudiantes);
+                                Refrescar();
+                            }
+                            else //Actualizar
+                            {
+                            db.Entry(DBestudiantes).State = System.Data.Entity.EntityState.Modified;
+                            db.SaveChanges();
+                            MessageBox.Show("Usuario Actualizado correctamente");
+                            Refrescar();
+
+                            }
+                            Refrescar();
+                            Utilidad.Limpiar(tbNombre, tbApellido, tbCedula, tbEmail, tbTelefono, tbTelefono);
+                            btnRegistrar.Text = "Registrar";
+                        }
+
                     }
-                    else //Actualizar
+                    catch
                     {
-                    db.Entry(DBestudiantes).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
-                    MessageBox.Show("Usuario Actualizado correctamente");
-                    Refrescar();
 
+                        MessageBox.Show("Error al actualizar registro");
                     }
-                    Refrescar();
-                    Utilidad.Limpiar(tbNombre, tbApellido, tbCedula, tbEmail, tbTelefono, tbTelefono);
-                    btnRegistrar.Text = "Registrar";
-                }
-
             }
-            catch
-            {
+           
 
-                MessageBox.Show("Error al actualizar registro");
-            }
+
+
+
 
 
         }

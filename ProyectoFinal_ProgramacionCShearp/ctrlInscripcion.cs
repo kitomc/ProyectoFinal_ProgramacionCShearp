@@ -17,12 +17,7 @@ namespace ProyectoFinal_ProgramacionCShearp
             InitializeComponent();
         }
        
-        //public ctrlInscripcion(EstudianteCursos estuCurso)
-        //{
-        //    InitializeComponent();
-        //    estudianteCursos = estuCurso;
-
-        //}
+        
 
         EstudianteCursos estudianteCursos = new EstudianteCursos();
 
@@ -57,8 +52,7 @@ namespace ProyectoFinal_ProgramacionCShearp
             }
 
 
-            refrecartabla();
-
+            
 
 
             
@@ -66,42 +60,7 @@ namespace ProyectoFinal_ProgramacionCShearp
 
 
 
-        //cargar tabla
-        void refrecartabla()
-        {
-               
-            using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
-            {
-
-
-
-
-
-                var query = from a in db.EstudianteCursos
-                                //from c in db.Cursos
-                                //from s in db.Estudiantes
-                                //where a.IdCurso == c.Id && a.IdEstudiante == s.Id
-                            join c in db.Cursos on a.IdCurso equals c.Id
-                            join s in db.Estudiantes on a.IdEstudiante equals s.Id
-                            select c.Nombre + s.Nombre;
-
-
-                dataGridView1.DataSource = query.ToList();
-
-                
-
-                            
-
-
-
-
-
-            }
-            
-
-
-
-            }
+       
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
@@ -112,24 +71,39 @@ namespace ProyectoFinal_ProgramacionCShearp
             //Agregando a base de datos
             using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
             {
+                    //Validacion de curso estudiante
+                    var relacionEstudianteCurso = from es in db.Estudiantes
+                                         from sc in db.EstudianteCursos
+                                         from c in db.Cursos
+                                         where sc.IdEstudiante == es.Id && sc.IdCurso == c.Id
+                                         select  (sc.Id) ;
+
+
+
+
+                   
+                        
+
+                        db.EstudianteCursos.Add(estudianteCursos);
+
+                        db.SaveChanges();
+                        MessageBox.Show("Estudiante inscrito  satisfactoriamente");
+
+                   
+                   
+                       // MessageBox.Show("Este estudiante esta inscrito en esta materia, seleccione otra por favor!");
+                   
+                    //Carga de datos ComboBox
                 var estudiante = from a in db.Estudiantes
                                  where a.Nombre == cbEstudiante.SelectedItem.ToString()
                                  select a.Id;
-                estudianteCursos.IdEstudiante = estudiante.First();
+                estudianteCursos.IdEstudiante = estudiante.FirstOrDefault();
 
 
                 var curso = from a in db.Cursos
                             where a.Nombre == cbCursos.SelectedItem.ToString()
                             select a.Id;
-
                 estudianteCursos.IdCurso = curso.First();
-
-                db.EstudianteCursos.Add(estudianteCursos);
-
-                db.SaveChanges();
-                MessageBox.Show("Estudiante inscrito  satisfactoriamente");
-                refrecartabla();
-
                     
                   
 
@@ -144,6 +118,18 @@ namespace ProyectoFinal_ProgramacionCShearp
 
 
         }
+                     bool ExisteNombre(ComboBox Estudiante)
+                    {
+                        
+                        using (NOTIFICACIONEntities db = new NOTIFICACIONEntities())
+                        {
+                              
+
+                            return db.EstudianteCursos.Any(x => x.IdEstudiante == Estudiante.SelectedIndex );
+
+                        }
+
+                    }
     }
 
 }

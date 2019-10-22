@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrlCalificar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlCalificar.Designer.cs">
+      <DependentUpon>ctrlCalificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrlCursos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +134,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Utilidad.cs" />
+    <EmbeddedResource Include="ctrlCalificar.resx">
+      <DependentUpon>ctrlCalificar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrlCursos.resx">
       <DependentUpon>ctrlCursos.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +224,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\sp_trufit160x600.gif" />
+    <None Include="Resources\Untitled design.jpg" />
     <None Include="Resources\64994.gif" />
     <None Include="Resources\icons8_close_window_96px_1.png" />
     <None Include="Resources\icons8_close_window_64px.png" />

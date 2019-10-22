@@ -32,20 +32,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pnlRegistroEstudiante = new System.Windows.Forms.Panel();
-            this.rbInactivo = new System.Windows.Forms.RadioButton();
-            this.rbActivo = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbNombre = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstudianteCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlRegistroEstudiante = new System.Windows.Forms.Panel();
+            this.rbInactivo = new System.Windows.Forms.RadioButton();
+            this.rbActivo = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlRegistroEstudiante.SuspendLayout();
@@ -97,15 +95,41 @@
             this.dataGridView1.Size = new System.Drawing.Size(317, 260);
             this.dataGridView1.TabIndex = 0;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "Id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 20;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 200;
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.Width = 50;
+            // 
+            // EstudianteCurso
+            // 
+            this.EstudianteCurso.DataPropertyName = "EstudianteCursos";
+            this.EstudianteCurso.HeaderText = "EstudianteCurso";
+            this.EstudianteCurso.Name = "EstudianteCurso";
+            this.EstudianteCurso.Visible = false;
+            // 
             // pnlRegistroEstudiante
             // 
             this.pnlRegistroEstudiante.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(247)))));
             this.pnlRegistroEstudiante.Controls.Add(this.rbInactivo);
             this.pnlRegistroEstudiante.Controls.Add(this.rbActivo);
             this.pnlRegistroEstudiante.Controls.Add(this.label1);
-            this.pnlRegistroEstudiante.Controls.Add(this.btnBorrar);
             this.pnlRegistroEstudiante.Controls.Add(this.btnRegistrar);
-            this.pnlRegistroEstudiante.Controls.Add(this.btnActualizar);
             this.pnlRegistroEstudiante.Controls.Add(this.label13);
             this.pnlRegistroEstudiante.Controls.Add(this.tbNombre);
             this.pnlRegistroEstudiante.Controls.Add(this.label12);
@@ -147,21 +171,6 @@
             this.label1.TabIndex = 45;
             this.label1.Text = "Nombre";
             // 
-            // btnBorrar
-            // 
-            this.btnBorrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnBorrar.FlatAppearance.BorderSize = 0;
-            this.btnBorrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.btnBorrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBorrar.ForeColor = System.Drawing.Color.Blue;
-            this.btnBorrar.Location = new System.Drawing.Point(24, 134);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(77, 23);
-            this.btnBorrar.TabIndex = 44;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = true;
-            // 
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.Blue;
@@ -178,21 +187,6 @@
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.BtnRegistrar_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnActualizar.FlatAppearance.BorderSize = 0;
-            this.btnActualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnActualizar.ForeColor = System.Drawing.Color.Blue;
-            this.btnActualizar.Location = new System.Drawing.Point(107, 134);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(77, 23);
-            this.btnActualizar.TabIndex = 43;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
@@ -223,34 +217,6 @@
             this.label12.TabIndex = 30;
             this.label12.Text = "Estado";
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "Id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 20;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 200;
-            // 
-            // Estado
-            // 
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.Width = 50;
-            // 
-            // EstudianteCurso
-            // 
-            this.EstudianteCurso.DataPropertyName = "EstudianteCursos";
-            this.EstudianteCurso.HeaderText = "EstudianteCurso";
-            this.EstudianteCurso.Name = "EstudianteCurso";
-            this.EstudianteCurso.Visible = false;
-            // 
             // ctrlCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,9 +245,7 @@
         private System.Windows.Forms.RadioButton rbInactivo;
         private System.Windows.Forms.RadioButton rbActivo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Label label12;

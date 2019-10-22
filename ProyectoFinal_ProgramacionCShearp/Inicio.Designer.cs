@@ -30,36 +30,36 @@
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlEstudiante = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlCurso = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlCalificar = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlInscripcion = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbFechaHoy = new System.Windows.Forms.Label();
             this.lbNombreUsuario = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
             this.pnlEstudiante.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnlCurso.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.pnlCalificar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.pnlInscripcion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -93,20 +93,6 @@
             this.pnlEstudiante.MouseLeave += new System.EventHandler(this.PnlEstudiante_MouseLeave);
             this.pnlEstudiante.MouseHover += new System.EventHandler(this.PnlEstudiante_MouseHover);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::ProyectoFinal_ProgramacionCShearp.Properties.Resources.icons8_student_male_500px;
-            this.pictureBox4.Location = new System.Drawing.Point(23, 5);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 24;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.PnlEstudiante_Click);
-            this.pictureBox4.MouseLeave += new System.EventHandler(this.PnlEstudiante_MouseLeave);
-            this.pictureBox4.MouseHover += new System.EventHandler(this.PnlEstudiante_MouseHover);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -134,20 +120,6 @@
             this.pnlCurso.MouseLeave += new System.EventHandler(this.PictureBox5_MouseLeave);
             this.pnlCurso.MouseHover += new System.EventHandler(this.PnlCurso_MouseHover_1);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = global::ProyectoFinal_ProgramacionCShearp.Properties.Resources.icons8_classroom_500px;
-            this.pictureBox5.Location = new System.Drawing.Point(23, 3);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 24;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.PnlCurso_Click);
-            this.pictureBox5.MouseLeave += new System.EventHandler(this.PictureBox5_MouseLeave);
-            this.pictureBox5.MouseHover += new System.EventHandler(this.PnlCurso_MouseHover_1);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -171,21 +143,9 @@
             this.pnlCalificar.Name = "pnlCalificar";
             this.pnlCalificar.Size = new System.Drawing.Size(86, 77);
             this.pnlCalificar.TabIndex = 30;
+            this.pnlCalificar.Click += new System.EventHandler(this.PnlCalificar_Click);
             this.pnlCalificar.MouseLeave += new System.EventHandler(this.PnlCalificar_MouseLeave);
             this.pnlCalificar.MouseHover += new System.EventHandler(this.PictureBox7_MouseHover);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.Image = global::ProyectoFinal_ProgramacionCShearp.Properties.Resources.icons8_open_envelope_math_500px;
-            this.pictureBox7.Location = new System.Drawing.Point(20, 6);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 24;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.MouseLeave += new System.EventHandler(this.PnlCalificar_MouseLeave);
-            this.pictureBox7.MouseHover += new System.EventHandler(this.PictureBox7_MouseHover);
             // 
             // label6
             // 
@@ -197,6 +157,7 @@
             this.label6.Size = new System.Drawing.Size(65, 32);
             this.label6.TabIndex = 23;
             this.label6.Text = "Calificar";
+            this.label6.Click += new System.EventHandler(this.PnlCalificar_Click);
             this.label6.MouseLeave += new System.EventHandler(this.PnlCalificar_MouseLeave);
             this.label6.MouseHover += new System.EventHandler(this.PictureBox7_MouseHover);
             // 
@@ -212,20 +173,6 @@
             this.pnlInscripcion.Click += new System.EventHandler(this.PnlInscripcion_Click);
             this.pnlInscripcion.MouseLeave += new System.EventHandler(this.PnlInscripcion_MouseLeave);
             this.pnlInscripcion.MouseHover += new System.EventHandler(this.PnlInscripcion_MouseHover);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Image = global::ProyectoFinal_ProgramacionCShearp.Properties.Resources.icons8_report_card_500px;
-            this.pictureBox6.Location = new System.Drawing.Point(20, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 24;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.PnlInscripcion_Click);
-            this.pictureBox6.MouseLeave += new System.EventHandler(this.PnlInscripcion_MouseLeave);
-            this.pictureBox6.MouseHover += new System.EventHandler(this.PnlInscripcion_MouseHover);
             // 
             // label4
             // 
@@ -267,6 +214,94 @@
             this.pnlHeader.Size = new System.Drawing.Size(707, 87);
             this.pnlHeader.TabIndex = 0;
             // 
+            // lbFechaHoy
+            // 
+            this.lbFechaHoy.AutoSize = true;
+            this.lbFechaHoy.BackColor = System.Drawing.Color.Transparent;
+            this.lbFechaHoy.Font = new System.Drawing.Font("Javanese Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFechaHoy.Location = new System.Drawing.Point(509, 49);
+            this.lbFechaHoy.Name = "lbFechaHoy";
+            this.lbFechaHoy.Size = new System.Drawing.Size(93, 32);
+            this.lbFechaHoy.TabIndex = 25;
+            this.lbFechaHoy.Text = "dd/MM/yyyy";
+            // 
+            // lbNombreUsuario
+            // 
+            this.lbNombreUsuario.AutoSize = true;
+            this.lbNombreUsuario.Font = new System.Drawing.Font("Javanese Text", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombreUsuario.Location = new System.Drawing.Point(482, 24);
+            this.lbNombreUsuario.Name = "lbNombreUsuario";
+            this.lbNombreUsuario.Size = new System.Drawing.Size(153, 43);
+            this.lbNombreUsuario.TabIndex = 24;
+            this.lbNombreUsuario.Text = "NombreUsuario ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Javanese Text", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(194)))), ((int)(((byte)(190)))));
+            this.label1.Location = new System.Drawing.Point(97, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 43);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Administrador ";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::ProyectoFinal_ProgramacionCShearp.Properties.Resources.icons8_student_male_500px;
+            this.pictureBox4.Location = new System.Drawing.Point(23, 5);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 24;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.PnlEstudiante_Click);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.PnlEstudiante_MouseLeave);
+            this.pictureBox4.MouseHover += new System.EventHandler(this.PnlEstudiante_MouseHover);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Image = global::ProyectoFinal_ProgramacionCShearp.Properties.Resources.icons8_classroom_500px;
+            this.pictureBox5.Location = new System.Drawing.Point(23, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 24;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.PnlCurso_Click);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.PictureBox5_MouseLeave);
+            this.pictureBox5.MouseHover += new System.EventHandler(this.PnlCurso_MouseHover_1);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.Image = global::ProyectoFinal_ProgramacionCShearp.Properties.Resources.icons8_open_envelope_math_500px;
+            this.pictureBox7.Location = new System.Drawing.Point(20, 6);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 24;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.PnlCalificar_Click);
+            this.pictureBox7.MouseLeave += new System.EventHandler(this.PnlCalificar_MouseLeave);
+            this.pictureBox7.MouseHover += new System.EventHandler(this.PictureBox7_MouseHover);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.Image = global::ProyectoFinal_ProgramacionCShearp.Properties.Resources.icons8_report_card_500px;
+            this.pictureBox6.Location = new System.Drawing.Point(20, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 24;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.PnlInscripcion_Click);
+            this.pictureBox6.MouseLeave += new System.EventHandler(this.PnlInscripcion_MouseLeave);
+            this.pictureBox6.MouseHover += new System.EventHandler(this.PnlInscripcion_MouseHover);
+            // 
             // pictureBox8
             // 
             this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -289,27 +324,6 @@
             this.pictureBox3.TabIndex = 26;
             this.pictureBox3.TabStop = false;
             // 
-            // lbFechaHoy
-            // 
-            this.lbFechaHoy.AutoSize = true;
-            this.lbFechaHoy.BackColor = System.Drawing.Color.Transparent;
-            this.lbFechaHoy.Font = new System.Drawing.Font("Javanese Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFechaHoy.Location = new System.Drawing.Point(509, 49);
-            this.lbFechaHoy.Name = "lbFechaHoy";
-            this.lbFechaHoy.Size = new System.Drawing.Size(93, 32);
-            this.lbFechaHoy.TabIndex = 25;
-            this.lbFechaHoy.Text = "dd/MM/yyyy";
-            // 
-            // lbNombreUsuario
-            // 
-            this.lbNombreUsuario.AutoSize = true;
-            this.lbNombreUsuario.Font = new System.Drawing.Font("Javanese Text", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombreUsuario.Location = new System.Drawing.Point(482, 24);
-            this.lbNombreUsuario.Name = "lbNombreUsuario";
-            this.lbNombreUsuario.Size = new System.Drawing.Size(153, 43);
-            this.lbNombreUsuario.TabIndex = 24;
-            this.lbNombreUsuario.Text = "NombreUsuario ";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ProyectoFinal_ProgramacionCShearp.Properties.Resources.usuario;
@@ -319,17 +333,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Javanese Text", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(194)))), ((int)(((byte)(190)))));
-            this.label1.Location = new System.Drawing.Point(97, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 43);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Administrador ";
             // 
             // pictureBox1
             // 
@@ -357,18 +360,18 @@
             this.pnlMenu.ResumeLayout(false);
             this.pnlEstudiante.ResumeLayout(false);
             this.pnlEstudiante.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.pnlCurso.ResumeLayout(false);
             this.pnlCurso.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.pnlCalificar.ResumeLayout(false);
             this.pnlCalificar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.pnlInscripcion.ResumeLayout(false);
             this.pnlInscripcion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
