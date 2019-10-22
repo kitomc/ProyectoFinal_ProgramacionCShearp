@@ -138,7 +138,7 @@ namespace ProyectoFinal_ProgramacionCShearp
                                "kitomc.rd@gmail.com",
                                EmailEstudiante.Single(),
                                "Nota Profesor",
-                               " " + expresion + " su nota  fue  " + Convert.ToInt32(cbNota.Text) + " de 100");
+                               " " + expresion + " su nota  fue  " + Convert.ToInt32(cbNota.Text) + " de 100 en " + cbCursos.SelectedItem.ToString() );
 
                             //Envía el mensaje.
                             SmtpClient cliente = new SmtpClient(servidor);
