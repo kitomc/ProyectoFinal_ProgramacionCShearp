@@ -20,7 +20,7 @@ namespace ProyectoFinal_ProgramacionCShearp
         {
             InitializeComponent();
             
-            lbNombreUsuario.Text = NombreUsuario;
+            lbNombreUsuario.Text =  " Bienvenido " +NombreUsuario;
         }
 
         ctrlCursos ctrlCursos;

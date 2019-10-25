@@ -76,7 +76,7 @@ namespace ProyectoFinal_ProgramacionCShearp
             {
                 if (Utilidad.ValidacionUsuario(tbUsuario,tbContrasena)==true)
                 {
-                Inicio inicio = new Inicio();
+                Inicio inicio = new Inicio(tbUsuario.Text.ToString());
                 inicio.Show();
                 this.Hide();
                 }

@@ -83,10 +83,8 @@ namespace ProyectoFinal_ProgramacionCShearp
                                 {
                                                 using (NOTIFICACIONEntities db = new NOTIFICACIONEntities ())
                                                 {
-                                                                        var query = from a in db.Estudiantes
-                                                                                    where a.Cedula == tbCedula.Text
-                                                                                    select a.Id;
-                                                                    if (!(query.Any()))
+                                                                    var query = db.Estudiantes.Where(u => u.Cedula == tbCedula.Text).FirstOrDefault();
+                                                                    if (query==null)
                                                                     {
                                                                         using (NOTIFICACIONEntities db2 = new NOTIFICACIONEntities())
                                                                         {
@@ -180,6 +178,7 @@ namespace ProyectoFinal_ProgramacionCShearp
                             }
                             else //Actualizar
                             {
+                            tbCedula.Text = string.Empty;
                             db.Entry(DBestudiantes).State = System.Data.Entity.EntityState.Modified;
                             db.SaveChanges();
                             MessageBox.Show("Usuario Actualizado correctamente");
